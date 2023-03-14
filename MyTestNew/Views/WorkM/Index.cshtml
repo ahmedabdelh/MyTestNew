@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MyTestNew.Models.WorkM>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<p>
+    <a asp-action="Create" class=" btn btn-info "> WorkM Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmpId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem =>item.emp.Name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id  },htmlAttributes:new{@class="btn btn-info"}) |
+                    @* @Html.ActionLink("Details", "Details", new {  id=item.Id  }) |   *@
+                    @Html.ActionLink("Delete", "Delete", new {  id=item.Id  },htmlAttributes:new{@class="btn btn-danger"})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
